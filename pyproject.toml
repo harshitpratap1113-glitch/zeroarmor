@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zeroarmor"
+version = "1.0.0"
+authors = [
+  { name="ZeroArmor Cyber Defense Labs", email="security@zeroarmor.dev" },
+]
+description = "ZeroArmor: 22-Vector 1-Line Runtime Application Self-Protection (RASP) Shield."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://zeroarmor.dev"
+"Bug Tracker" = "https://github.com/zeroarmor/zeroarmor/issues"
