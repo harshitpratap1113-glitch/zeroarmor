@@ -1,0 +1,21 @@
+{
+  "channeldata_version": 1,
+  "packages": {
+    "zeroarmor": {
+      "description": "22-Vector 1-Line Runtime Application Self-Protection (RASP) Security Shield for Python",
+      "dev_url": "https://github.com/harshitpratap1113-glitch/zeroarmor",
+      "doc_url": "https://github.com/harshitpratap1113-glitch/zeroarmor",
+      "home": "https://github.com/harshitpratap1113-glitch/zeroarmor",
+      "license": "Apache-2.0",
+      "source_git_url": "https://github.com/harshitpratap1113-glitch/zeroarmor.git",
+      "subdirs": [
+        "noarch"
+      ],
+      "summary": "22-Vector 1-Line Runtime Application Self-Protection (RASP) Security Shield for Python",
+      "version": "1.0.0"
+    }
+  },
+  "subdirs": [
+    "noarch"
+  ]
+}

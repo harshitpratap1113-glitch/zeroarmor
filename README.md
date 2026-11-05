@@ -67,7 +67,13 @@ pip install zeroarmor --extra-index-url https://harshitpratap1113-glitch.github.
 ```
 *(Tip: Run `pip config set global.extra-index-url https://harshitpratap1113-glitch.github.io/zeroarmor/simple/` once, and then you can simply run `pip install zeroarmor` forever!)*
 
-### Option D: 1-Click Automated Terminal Installers
+### Option D: Via Conda
+```bash
+conda install -c https://harshitpratap1113-glitch.github.io/zeroarmor/conda zeroarmor
+```
+*(Tip: Run `conda config --add channels https://harshitpratap1113-glitch.github.io/zeroarmor/conda` once, and then you can simply run `conda install zeroarmor` forever!)*
+
+### Option E: 1-Click Automated Terminal Installers
 * **Windows (PowerShell):**
   ```powershell
   irm https://raw.githubusercontent.com/harshitpratap1113-glitch/zeroarmor/master/install.ps1 | iex
