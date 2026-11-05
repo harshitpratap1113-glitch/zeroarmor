@@ -49,14 +49,37 @@ Traditional security forces developers to configure complex WAFs, write 500 line
 
 ---
 
-## 🚀 Quickstart
+## 🚀 Installation & Quickstart
 
-### 1. Installation
+### Option A: Direct Pip Install (1-Line — Works Everywhere)
 ```bash
-pip install zeroarmor
+pip install https://github.com/harshitpratap1113-glitch/zeroarmor/releases/download/v1.0.0/zeroarmor-1.0.0-py3-none-any.whl
 ```
 
-### 2. In your `main.py` or `app.py`:
+### Option B: Via Git
+```bash
+pip install git+https://github.com/harshitpratap1113-glitch/zeroarmor.git
+```
+
+### Option C: Via PEP 503 PyPI Index
+```bash
+pip install zeroarmor --extra-index-url https://harshitpratap1113-glitch.github.io/zeroarmor/simple/
+```
+*(Tip: Run `pip config set global.extra-index-url https://harshitpratap1113-glitch.github.io/zeroarmor/simple/` once, and then you can simply run `pip install zeroarmor` forever!)*
+
+### Option D: 1-Click Automated Terminal Installers
+* **Windows (PowerShell):**
+  ```powershell
+  irm https://raw.githubusercontent.com/harshitpratap1113-glitch/zeroarmor/master/install.ps1 | iex
+  ```
+* **Linux / macOS (Bash):**
+  ```bash
+  curl -sSL https://raw.githubusercontent.com/harshitpratap1113-glitch/zeroarmor/master/install.sh | bash
+  ```
+
+---
+
+## ⚡ Usage in Your Code
 ```python
 import zeroarmor
 
