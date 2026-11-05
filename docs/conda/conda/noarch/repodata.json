@@ -1,0 +1,24 @@
+{
+  "info": {
+    "subdir": "noarch"
+  },
+  "packages": {
+    "zeroarmor-1.0.0-py_0.tar.bz2": {
+      "arch": null,
+      "build": "py_0",
+      "build_number": 0,
+      "depends": [
+        "python >=3.8"
+      ],
+      "license": "Apache-2.0",
+      "name": "zeroarmor",
+      "noarch": "python",
+      "platform": null,
+      "subdir": "noarch",
+      "timestamp": 1793901613193,
+      "version": "1.0.0"
+    }
+  },
+  "packages.conda": {},
+  "repodata_version": 1
+}
