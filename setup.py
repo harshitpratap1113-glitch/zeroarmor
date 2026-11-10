@@ -10,8 +10,8 @@ if os.path.exists(readme_path):
 
 setup(
     name="zeroarmor",
-    version="1.0.0",
-    description="ZeroArmor: 22-Vector 1-Line Runtime Application Self-Protection (RASP) Shield.",
+    version="2.0.0",
+    description="ZeroArmor Titanium: 32-Vector 1-Line Runtime Application Self-Protection (RASP) Shield.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="ZeroArmor Cyber Defense Labs",

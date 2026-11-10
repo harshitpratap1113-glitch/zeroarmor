@@ -1,5 +1,5 @@
 """
-ZeroArmor 22-Layer Rules Module Registry
+ZeroArmor 32-Layer Titanium Rules Module Registry
 """
 
 from .sqli import arm_sqli
@@ -21,6 +21,18 @@ from .env_guard import arm_env_guard
 from .dlp import arm_dlp
 from .rate_limiter import arm_rate_limiter
 
+# Next-Gen Vectors 23-32
+from .prompt_injection import arm_prompt_injection
+from .graphql_guard import arm_graphql_guard
+from .xxe import arm_xxe
+from .nosql_injection import arm_nosql_injection
+from .open_redirect import arm_open_redirect
+from .jwt_guard import arm_jwt_guard
+from .insecure_crypto import arm_insecure_crypto
+from .yaml_gadget import arm_yaml_gadget
+from .dns_rebinding import arm_dns_rebinding
+from .honeytoken import arm_honeytoken
+
 __all__ = [
     "arm_sqli",
     "arm_rce",
@@ -39,5 +51,15 @@ __all__ = [
     "arm_cors",
     "arm_env_guard",
     "arm_dlp",
-    "arm_rate_limiter"
+    "arm_rate_limiter",
+    "arm_prompt_injection",
+    "arm_graphql_guard",
+    "arm_xxe",
+    "arm_nosql_injection",
+    "arm_open_redirect",
+    "arm_jwt_guard",
+    "arm_insecure_crypto",
+    "arm_yaml_gadget",
+    "arm_dns_rebinding",
+    "arm_honeytoken"
 ]

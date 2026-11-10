@@ -1,6 +1,7 @@
 """
-Layer 1: SQL Injection Armor
-Wraps sqlite3.connect and cursor factories to detect and neutralize raw SQL injection patterns.
+Layer 1: SQL Injection Armor (Deep Query Inspector)
+Wraps database drivers (sqlite3, psycopg2, pymysql, duckdb) to detect and neutralize
+unparameterized SQL injection patterns, stacked queries, tautologies, and time-based blind SQLi.
 """
 
 import re
@@ -8,13 +9,17 @@ import sys
 
 SQL_INJECTION_PATTERN = re.compile(
     r"(\bUNION\s+(ALL\s+)?SELECT\b|"
-    r"\bDROP\s+TABLE\b|"
+    r"\b(DROP|TRUNCATE)\s+TABLE\b|"
     r"\bALTER\s+TABLE\b|"
     r"'\s*OR\s*['\d\w]+=['\d\w]+|"
-    r"\bOR\s+1\s*=\s*1\b|"
-    r"--\s*$|"
+    r"\"\s*OR\s*[\"\d\w]+=[\"\d\w]+|"
+    r"\bOR\s+(1\s*=\s*1|true\b)|"
+    r"--\s*($|\w)|"
     r"/\*.*?\*/|"
-    r"';\s*SHUTDOWN\b)",
+    r"';\s*(DROP|DELETE|TRUNCATE|SHUTDOWN|UPDATE)\b|"
+    r";\s*(DROP|TRUNCATE)\s+TABLE\b|"
+    r"\b(WAITFOR\s+DELAY|pg_sleep\s*\(|sleep\s*\(|benchmark\s*\()|"
+    r"\b(information_schema\.(tables|columns)|sqlite_master\b))",
     re.IGNORECASE | re.MULTILINE
 )
 
@@ -37,7 +42,7 @@ def inspect_query(sql: str, core) -> bool:
     return True
 
 class ArmoredCursorProxy:
-    """Wraps C-level Cursor to intercept execute/executemany."""
+    """Wraps database Cursor to intercept execute/executemany."""
     def __init__(self, original_cursor, core):
         self._cursor = original_cursor
         self._core = core
@@ -57,7 +62,7 @@ class ArmoredCursorProxy:
         return iter(self._cursor)
 
 class ArmoredConnectionProxy:
-    """Wraps sqlite3.Connection to return ArmoredCursorProxy."""
+    """Wraps database Connection to return ArmoredCursorProxy."""
     def __init__(self, original_conn, core):
         self._conn = original_conn
         self._core = core
@@ -85,7 +90,7 @@ class ArmoredConnectionProxy:
         return self._conn.__exit__(exc_type, exc_val, exc_tb)
 
 def arm_sqli(core):
-    # Hook sqlite3.connect
+    # 1. Hook sqlite3.connect
     try:
         import sqlite3
         orig_connect = sqlite3.connect
@@ -98,7 +103,7 @@ def arm_sqli(core):
     except ImportError:
         pass
 
-    # Hook psycopg2 if present
+    # 2. Hook psycopg2 if present
     if "psycopg2" in sys.modules:
         try:
             import psycopg2
@@ -110,7 +115,7 @@ def arm_sqli(core):
         except Exception:
             pass
 
-    # Hook pymysql if present
+    # 3. Hook pymysql if present
     if "pymysql" in sys.modules:
         try:
             import pymysql
