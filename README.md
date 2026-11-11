@@ -103,3 +103,15 @@ zeroarmor export --cef --file /var/log/zeroarmor.cef
 python tests/test_32_shields.py
 ```
 Outputs 100% PASS across all 32 vectors.
+
+---
+
+## 💰 Commercial Pro Licensing & 🔄 Guaranteed Future Updates
+
+ZeroArmor Titanium operates on an open-core architecture:
+* **Community Edition:** 100% Free under Apache 2.0 for personal and educational use.
+* **Commercial Pro & Enterprise License ($49 Early-Bird Lifetime):** For startups, proprietary SaaS platforms, and enterprise deployments needing commercial distribution rights, SIEM export pipelines, and priority defense support.
+* **100% Lifetime Future Updates Guaranteed:** All license holders receive continuous automatic updates for life — including new zero-day vulnerability heuristics, updated LLM prompt injection jailbreak models, and native adapters for evolving AI agent frameworks (CrewAI, LangChain, AutoGen, LlamaIndex) with zero annual subscription renewals.
+
+For commercial licensing and enterprise deployment inquiries, contact: `harshitpratap1113@gmail.com`
+
